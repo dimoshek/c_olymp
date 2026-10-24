@@ -1,16 +1,28 @@
+/* 24.10.2026 Сизов Д.
+Строки. Подсчет операций + и - (Bit++). */
+/* Задание. Вывести итоговое значение x после выполнения n операций */
 #include <stdio.h>
-
-int main(void) {
+int main() {
     int n, x = 0;
     char s[4];
+    int i, j;
     scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
+    /* Чтение и выполнение операций */
+    for (i = 0; i < n; ++i) {
         scanf("%3s", s);
-        for (int j = 0; j < 3; j++) {
-            if (s[j] == '+') { x++; break; }
-            if (s[j] == '-') { x--; break; }
+        for (j = 0; j < 3; ++j) {
+            if (s[j] == '+') {
+                ++x;
+                break;
+            }
+            if (s[j] == '-') {
+                --x;
+                break;
+            }
         }
     }
+    /* Печать */
     printf("%d", x);
+
     return 0;
 }
